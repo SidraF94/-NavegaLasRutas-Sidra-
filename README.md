@@ -15,19 +15,5 @@ Landing page de una tienda virtual de emojis construida con React.
 - ✅ Modo nocturno
 - ✅ Navegación suave entre secciones
 - ✅ Popup de bienvenida interactivo
-- ✅ Diseño responsive
-- ✅ Formulario de contacto
 
-## 🚀 Instalación
-
-```
-
-## 📁 Estructura
-
-```
-src/
-├── components/     # Componentes React
-├── App.js         # Componente principal
-└── App.css        # Estilos globales
-```
 
