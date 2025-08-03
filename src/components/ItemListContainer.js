@@ -1,6 +1,7 @@
 import React from "react";
 import "./ItemListContainer.css";
 
+//greeting es el mensaje de bienvenida que se recibe por props
 const ItemListContainer = ({ greeting, modoNocturno }) => {
   // Función para desplazarse suavemente al inicio de la página
   const scrollToTop = () => {
@@ -8,21 +9,18 @@ const ItemListContainer = ({ greeting, modoNocturno }) => {
   };
 
   return (
-    // Contenedor principal de la sección de productos
     <div className={`contenedor-lista-productos ${modoNocturno ? 'modo-nocturno' : ''}`} id="productos">
       <div className={`contenido-contenedor ${modoNocturno ? 'modo-nocturno' : ''}`}>
         {/* Título personalizado recibido por props */}
         <h1>{greeting}</h1>
 
-        {/* Sección que muestra mensaje de sin stock */}
         <div className={`seccion-sin-stock ${modoNocturno ? 'modo-nocturno' : ''}`}>
           <div className="icono-stock">📦</div>
-          <h2>¡Lo sentimos! 😔</h2>
+          <h2>Lo sentimos! 😔</h2>
 
-          {/* Mensaje principal de sin stock */}
           <p className={`mensaje-stock ${modoNocturno ? 'modo-nocturno' : ''}`}>
             Estamos sin stock en este momento. Nuestros emojis están agotados
-            debido a la alta demanda mundial. ¡Pero no te preocupes!
+            debido a la alta demanda mundial.
           </p>
 
 

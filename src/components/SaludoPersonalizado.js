@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
-const SaludoPersonalizado = ({ onNombreCambio }) => {
+
+const SaludoPersonalizado = ({ cuandoElNombreCambia }) => {
+  //nombreUsuario no se usa en este componente, se usa en el componente padre App.js
   const [nombreUsuario, setNombreUsuario] = useState("");
+  //haSaludado es un booleano que se usa para evitar que se muestre el SweetAlert si ya se ha saludado
   const [haSaludado, setHaSaludado] = useState(false);
 
+  //useEffect se utiliza despues de renderiizar el componente. 
   useEffect(() => {
     // Solo mostrar el SweetAlert si no se ha saludado antes
     if (!haSaludado) {
       const preguntarNombre = async () => {
         const { value: nombre } = await Swal.fire({
-          title: "¡Bienvenido a TiendaEmoji! 🛍️",
-          text: "¿Cómo te llamas?",
+          title: "Bienvenido a TiendaEmoji! 🛍️",
+          text: "Cómo te llamas?",
           input: "text",
           inputPlaceholder: "Tu nombre aquí...",
           inputValidator: (valor) => {
             if (!valor) {
-              return "¡Necesitamos tu nombre para darte la bienvenida!";
+              return "Necesitamos tu nombre para darte la bienvenida!";
             }
           },
-          confirmButtonText: "¡Entrar!",
+          confirmButtonText: "Entrar",
           confirmButtonColor: "#f59a16",
           showCancelButton: false,
           allowOutsideClick: false,
@@ -38,14 +42,14 @@ const SaludoPersonalizado = ({ onNombreCambio }) => {
           setHaSaludado(true);
           
           // Notificar al componente padre sobre el cambio de nombre
-          onNombreCambio(nombre);
+          cuandoElNombreCambia(nombre);
           
           // Mostrar mensaje de bienvenida
           Swal.fire({
-            title: `¡Hola ${nombre}! 👋`,
-            text: "¡Bienvenido a la mejor tienda de emojis del mundo!",
+            title: `Hola ${nombre}! 👋`,
+            text: "Bienvenido a la mejor tienda de emojis!",
             icon: "success",
-            confirmButtonText: "¡Empezar a comprar!",
+            confirmButtonText: "Empezar a comprar!",
             confirmButtonColor: "#f59a16",
             background: "linear-gradient(45deg, #a8a4e6, #b8a9c9)",
             color: "white"
@@ -55,7 +59,7 @@ const SaludoPersonalizado = ({ onNombreCambio }) => {
 
       preguntarNombre();
     }
-  }, [haSaludado, onNombreCambio]);
+  }, [haSaludado, cuandoElNombreCambia]);
 
   return null; // Este componente no renderiza nada visualmente
 };

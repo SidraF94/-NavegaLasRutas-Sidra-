@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
@@ -7,24 +7,36 @@ import Contacto from './components/Contacto';
 import SaludoPersonalizado from './components/SaludoPersonalizado';
 
 function App() {
+  //useState para el nombre del usuario y setNombreUsuario para cambiar el nombre
   const [nombreUsuario, setNombreUsuario] = useState('');
-  const [modoNocturno, setModoNocturno] = useState(false);
 
-  const manejarCambioNombre = (nombre) => {
+  //useState para el modo nocturno y setModoNocturno para cambiar el modo
+  const [modoNocturno, setModoNocturno] = useState(() => {
+    const guardado = localStorage.getItem('modoNocturno');
+    return guardado ? JSON.parse(guardado) : false;
+  });
+
+  // En localStorage cuando cambie el modo
+  useEffect(() => {
+    localStorage.setItem('modoNocturno', JSON.stringify(modoNocturno));
+  }, [modoNocturno]);
+
+  //Cuando llamo setNombreUsuario y setModoNocturno se vuelve a renderizar.
+  const cuandoElNombreCambia = (nombre) => {
     setNombreUsuario(nombre);
   };
-
   const cambiarModoNocturno = () => {
     setModoNocturno(!modoNocturno);
   };
 
-  const mensajeBienvenida = nombreUsuario 
-    ? `¡Bienvenido ${nombreUsuario}! 🎉` 
-    : '¡Bienvenidos a TiendaEmoji!';
+  const mensajeBienvenida = nombreUsuario
+    ? `Bienvenido ${nombreUsuario}! 🎉`
+    : 'Bienvenidos a TiendaEmoji!';
 
   return (
+    //Llamamos a todos los componentes
     <div className={`App ${modoNocturno ? 'modo-nocturno' : ''}`} id="inicio">
-      <SaludoPersonalizado onNombreCambio={manejarCambioNombre} />
+      <SaludoPersonalizado cuandoElNombreCambia={cuandoElNombreCambia} />
       <NavBar modoNocturno={modoNocturno} cambiarModoNocturno={cambiarModoNocturno} />
       <ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />
       <SobreNosotros modoNocturno={modoNocturno} />

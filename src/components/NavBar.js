@@ -29,27 +29,21 @@ const NavBar = ({ modoNocturno, cambiarModoNocturno }) => {
         
         {/* Menú de navegación principal */}
         <ul className="navbar-menu">
-          {/* Enlace al inicio de la página */}
+        
           <li><a onClick={() => scrollToSection("inicio")} style={{ cursor: "pointer" }}>Inicio</a></li>
-          
-          {/* Enlace a la sección de productos */}
           <li><a onClick={() => scrollToSection("productos")} style={{ cursor: "pointer" }}>Productos</a></li>
-          
-          {/* Enlace a la sección sobre nosotros */}
           <li><a onClick={() => scrollToSection("sobre-nosotros")} style={{ cursor: "pointer" }}>Sobre Nosotros</a></li>
-          
-          {/* Enlace a la sección de contacto */}
           <li><a onClick={() => scrollToSection("contacto")} style={{ cursor: "pointer" }}>Contacto</a></li>
         </ul>
         
         {/* Contenedor de widgets (carrito + modo nocturno) */}
         <div className="navbar-widgets">
-          {/* Widget del carrito de compras */}
           <CartWidget />
           
-          {/* Botón de modo nocturno */}
           <BotonModoNocturno 
-            modoNocturno={modoNocturno} 
+            modoNocturno={modoNocturno}
+            //cambiarModoNocturno es la función que se ejecuta 
+            // al hacer clic en el botón de modo nocturno
             cambiarModo={cambiarModoNocturno} 
           />
         </div>

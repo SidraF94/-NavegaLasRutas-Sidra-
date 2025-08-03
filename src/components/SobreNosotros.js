@@ -8,7 +8,7 @@ const SobreNosotros = ({ modoNocturno }) => {
       <div className={`sobre-nosotros-container ${modoNocturno ? 'modo-nocturno' : ''}`}>
         <h2>📖 Nuestra Historia</h2>
 
-        {/* Tarjeta de historia */}
+        {/* Tarjeta de historia. El texto esta hecho claramente con IA */}
         
         <div className={`seccion-historia ${modoNocturno ? 'modo-nocturno' : ''}`}>
           <TarjetaHistoria 

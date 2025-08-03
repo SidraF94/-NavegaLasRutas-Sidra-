@@ -1,6 +1,8 @@
 import React from "react";
 import "./Contacto.css";
 
+//Componente de contacto con todo lo que es html, quizas el mas extenso del proyecto
+
 const Contacto = ({ modoNocturno }) => {
   return (
     <div className={`contacto ${modoNocturno ? 'modo-nocturno' : ''}`} id="contacto">
@@ -12,7 +14,7 @@ const Contacto = ({ modoNocturno }) => {
             <h3>💬 ¿Necesitas ayuda?</h3>
             <p>
               Estamos aquí para ayudarte con cualquier consulta sobre nuestros emojis. 
-              ¡No dudes en contactarnos!
+              No dudes en contactarnos!
             </p>
             
             <div className={`metodos-contacto ${modoNocturno ? 'modo-nocturno' : ''}`}>
@@ -28,7 +30,7 @@ const Contacto = ({ modoNocturno }) => {
                 <span className="icono-metodo">📱</span>
                 <div>
                   <h4>WhatsApp</h4>
-                  <p>+54 11 1234-5678</p>
+                  <p>+54 351 234-5678</p>
                 </div>
               </div>
               
@@ -36,7 +38,7 @@ const Contacto = ({ modoNocturno }) => {
                 <span className="icono-metodo">🕒</span>
                 <div>
                   <h4>Horarios</h4>
-                  <p>Lun-Vie: 9:00 - 18:00</p>
+                  <p>Lun-Dom: 00:00 - 23:59</p>
                 </div>
               </div>
             </div>
