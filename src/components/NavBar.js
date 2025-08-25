@@ -24,7 +24,7 @@ const NavBar = ({ modoNocturno, cambiarModoNocturno }) => {
         <div className="navbar-logo">
           <Link to="/" onClick={cerrarMenu}>
             <img 
-              src="/logo-tiendaemoji.png" 
+              src={process.env.PUBLIC_URL + "/logo-tiendaemoji.png"} 
               alt="TiendaEmoji Logo" 
               className="logo-imagen"
               style={{ cursor: "pointer" }}

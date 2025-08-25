@@ -32,7 +32,7 @@ const ItemListContainer = ({ greeting, modoNocturno }) => {
       // Importar datos del JSON
       const datosEmojis = await import('../data/emojis.json');
       
-      //SOLUCION para los items que se renderizaban 2 veces.
+      
       let todosLosEmojis = datosEmojis.default;
       
       // Filtrar por categoría si se especifica
@@ -58,6 +58,7 @@ const ItemListContainer = ({ greeting, modoNocturno }) => {
           );
         }
       }
+      //SOLUCION para los items que se renderizaban 2 veces.
       // Reiniciar estados para la nueva categoría
       setEmojis(todosLosEmojis);
       setPaqueteActual(0);
