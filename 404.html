@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NavegaLasRutasSidra</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment.
+      //
+      // If the current url is:
+      // https://www.github.com/username/repo-name/foo/bar?baz=qux#fragment
+      // Then the redirect url will be:
+      // https://www.github.com/username/repo-name/?/foo/bar&baz=qux#fragment
+      //
+      // Note: This 404.html file must be at the root of your repository, 
+      // not in a docs or master branch folder.
+      // Also note that in order for the redirect to occur you need to have
+      // a docs/404.html file in your repository.
+      //
+      // If you're using a project site then you need to rename this file to:
+      // 404.html
+      // And then remove the docs/ prefix from the redirect url below.
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
