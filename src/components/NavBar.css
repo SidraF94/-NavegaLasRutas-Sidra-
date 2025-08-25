@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .navbar-logo {
@@ -68,18 +69,88 @@
   gap: 1rem;
 }
 
+/* Botón hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.activo span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.activo span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.activo span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 1rem;
   }
   
+  /* Mostrar botón hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Ocultar menú en móviles por defecto */
   .navbar-menu {
-    gap: 1rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, #a8a4e6 0%, #b8a9c9 100%);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+    gap: 0;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  .navbar-menu.activo {
+    right: 0;
+  }
+  
+  .navbar-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
   }
   
   .navbar-menu li a {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.9rem;
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .navbar-menu li a:hover {
+    background: rgba(255,255,255,0.15);
+    transform: none;
   }
   
   .logo-imagen {
@@ -88,5 +159,25 @@
   
   .navbar-widgets {
     gap: 0.5rem;
+  }
+  
+  /* Modo nocturno para menú móvil */
+  .modo-nocturno .navbar-menu {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-menu {
+    width: 100%;
+    right: -100%;
+  }
+  
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  
+  .logo-imagen {
+    height: 30px;
   }
 } 

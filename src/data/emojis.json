@@ -1,0 +1,801 @@
+[
+    {
+        "id": 1,
+        "titulo": "Smiling Face",
+        "descripcion": "Un emoji de cara sonriente muy popular y versátil 😊",
+        "precio": 1499,
+        "imagenUrl": "😊",
+        "categoria": "Emociones"
+    },
+    {
+        "id": 2,
+        "titulo": "Laughing Face",
+        "descripcion": "Cara riendo a carcajadas, perfecto para momentos divertidos 😂",
+        "precio": 1899,
+        "imagenUrl": "😂",
+        "categoria": "Emociones"
+    },
+    {
+        "id": 3,
+        "titulo": "Heart Eyes",
+        "descripcion": "Ojos en forma de corazón, ideal para expresar amor y admiración 😍",
+        "precio": 1699,
+        "imagenUrl": "😍",
+        "categoria": "Emociones"
+    },
+    {
+        "id": 4,
+        "titulo": "Thumbs Up",
+        "descripcion": "Pulgar hacia arriba, símbolo universal de aprobación 👍",
+        "precio": 1299,
+        "imagenUrl": "👍",
+        "categoria": "Gestos"
+    },
+    {
+        "id": 5,
+        "titulo": "Fire",
+        "descripcion": "Emoji de fuego para expresar que algo está muy bueno 🔥",
+        "precio": 1199,
+        "imagenUrl": "🔥",
+        "categoria": "Elementos"
+    },
+    {
+        "id": 6,
+        "titulo": "Crying Face",
+        "descripcion": "Cara llorando, perfecto para momentos tristes o dramáticos 😢",
+        "precio": 999,
+        "imagenUrl": "😢",
+        "categoria": "Emociones"
+    },
+    {
+        "id": 7,
+        "titulo": "Party Popper",
+        "descripcion": "Confeti para celebrar cumpleaños y logros 🎉",
+        "precio": 899,
+        "imagenUrl": "🎉",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 8,
+        "titulo": "Red Heart",
+        "descripcion": "Corazón rojo, símbolo clásico del amor ❤️",
+        "precio": 1299,
+        "imagenUrl": "❤️",
+        "categoria": "Amor"
+    },
+    {
+        "id": 9,
+        "titulo": "Thinking Face",
+        "descripcion": "Cara pensativa, ideal para expresar duda o reflexión 🤔",
+        "precio": 999,
+        "imagenUrl": "🤔",
+        "categoria": "Emociones"
+    },
+    {
+        "id": 10,
+        "titulo": "Clown Face",
+        "descripcion": "Cara de payaso para momentos graciosos y divertidos 🤡",
+        "precio": 799,
+        "imagenUrl": "🤡",
+        "categoria": "Diversión"
+    },
+    {
+        "id": 11,
+        "titulo": "Alien Face",
+        "descripcion": "Cara extraterrestre para fans de la ciencia ficción 👽",
+        "precio": 599,
+        "imagenUrl": "👽",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 12,
+        "titulo": "Robot Face",
+        "descripcion": "Cara de robot para entusiastas de la tecnología 🤖",
+        "precio": 799,
+        "imagenUrl": "🤖",
+        "categoria": "Tecnología"
+    },
+    {
+        "id": 13,
+        "titulo": "Dragon Face",
+        "descripcion": "Cara de dragón para amantes de la fantasía 🐉",
+        "precio": 899,
+        "imagenUrl": "🐉",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 14,
+        "titulo": "Unicorn Face",
+        "descripcion": "Cara de unicornio mágico y colorido 🦄",
+        "precio": 999,
+        "imagenUrl": "🦄",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 15,
+        "titulo": "Cat Face",
+        "descripcion": "Cara de gato adorable y tierno 🐱",
+        "precio": 1299,
+        "imagenUrl": "🐱",
+        "categoria": "Animales"
+    },
+    {
+        "id": 16,
+        "titulo": "Dog Face",
+        "descripcion": "Cara de perro fiel y amigable 🐶",
+        "precio": 1299,
+        "imagenUrl": "🐶",
+        "categoria": "Animales"
+    },
+    {
+        "id": 17,
+        "titulo": "Pizza",
+        "descripcion": "Pizza deliciosa, favorita de muchos 🍕",
+        "precio": 1599,
+        "imagenUrl": "🍕",
+        "categoria": "Comida"
+    },
+    {
+        "id": 18,
+        "titulo": "Hamburger",
+        "descripcion": "Hamburguesa clásica y sabrosa 🍔",
+        "precio": 1399,
+        "imagenUrl": "🍔",
+        "categoria": "Comida"
+    },
+    {
+        "id": 19,
+        "titulo": "Coffee",
+        "descripcion": "Café caliente para empezar el día ☕",
+        "precio": 899,
+        "imagenUrl": "☕",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 20,
+        "titulo": "Beer",
+        "descripcion": "Cerveza fría para celebrar 🍺",
+        "precio": 1199,
+        "imagenUrl": "🍺",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 21,
+        "titulo": "Wine Glass",
+        "descripcion": "Copa de vino elegante 🍷",
+        "precio": 1599,
+        "imagenUrl": "🍷",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 22,
+        "titulo": "Cocktail",
+        "descripcion": "Cóctel colorido y refrescante 🍸",
+        "precio": 1399,
+        "imagenUrl": "🍸",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 23,
+        "titulo": "Tropical Drink",
+        "descripcion": "Bebida tropical con sombrilla 🍹",
+        "precio": 1299,
+        "imagenUrl": "🍹",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 24,
+        "titulo": "Milk",
+        "descripcion": "Leche fresca y nutritiva 🥛",
+        "precio": 899,
+        "imagenUrl": "🥛",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 25,
+        "titulo": "Juice Box",
+        "descripcion": "Jugo en cajita para niños 🧃",
+        "precio": 699,
+        "imagenUrl": "🧃",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 26,
+        "titulo": "Ice Cream",
+        "descripcion": "Helado cremoso y delicioso 🍦",
+        "precio": 999,
+        "imagenUrl": "🍦",
+        "categoria": "Comida"
+    },
+    {
+        "id": 27,
+        "titulo": "Cake",
+        "descripcion": "Pastel de cumpleaños decorado 🎂",
+        "precio": 1899,
+        "imagenUrl": "🎂",
+        "categoria": "Comida"
+    },
+    {
+        "id": 28,
+        "titulo": "Cookie",
+        "descripcion": "Galleta casera y deliciosa 🍪",
+        "precio": 599,
+        "imagenUrl": "🍪",
+        "categoria": "Comida"
+    },
+    {
+        "id": 29,
+        "titulo": "Chocolate Bar",
+        "descripcion": "Barra de chocolate irresistible 🍫",
+        "precio": 799,
+        "imagenUrl": "🍫",
+        "categoria": "Comida"
+    },
+    {
+        "id": 30,
+        "titulo": "Candy",
+        "descripcion": "Caramelo dulce y colorido 🍬",
+        "precio": 399,
+        "imagenUrl": "🍬",
+        "categoria": "Comida"
+    },
+    {
+        "id": 31,
+        "titulo": "Lollipop",
+        "descripcion": "Piruleta de colores 🍭",
+        "precio": 299,
+        "imagenUrl": "🍭",
+        "categoria": "Comida"
+    },
+    {
+        "id": 32,
+        "titulo": "Honey Pot",
+        "descripcion": "Tarro de miel dorada 🍯",
+        "precio": 1299,
+        "imagenUrl": "🍯",
+        "categoria": "Comida"
+    },
+    {
+        "id": 33,
+        "titulo": "Baby Bottle",
+        "descripcion": "Mamadera para bebés 🍼",
+        "precio": 899,
+        "imagenUrl": "🍼",
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 34,
+        "titulo": "Fork and Knife",
+        "descripcion": "Tenedor y cuchillo para comer 🍴",
+        "precio": 599,
+        "imagenUrl": "🍴",
+        "categoria": "Comida"
+    },
+    {
+        "id": 35,
+        "titulo": "Spoon",
+        "descripcion": "Cuchara para sopa 🥄",
+        "precio": 399,
+        "imagenUrl": "🥄",
+        "categoria": "Comida"
+    },
+    {
+        "id": 36,
+        "titulo": "Bowl with Spoon",
+        "descripcion": "Tazón con cuchara 🥣",
+        "precio": 799,
+        "imagenUrl": "🥣",
+        "categoria": "Comida"
+    },
+    {
+        "id": 37,
+        "titulo": "Plate with Cutlery",
+        "descripcion": "Plato con cubiertos 🍽️",
+        "precio": 999,
+        "imagenUrl": "🍽️",
+        "categoria": "Comida"
+    },
+    {
+        "id": 38,
+        "titulo": "Chopsticks",
+        "descripcion": "Palillos chinos 🥢",
+        "precio": 299,
+        "imagenUrl": "🥢",
+        "categoria": "Comida"
+    },
+    {
+        "id": 39,
+        "titulo": "Salt",
+        "descripcion": "Salero de cocina 🧂",
+        "precio": 199,
+        "imagenUrl": "🧂",
+        "categoria": "Comida"
+    },
+    {
+        "id": 40,
+        "titulo": "Pepper",
+        "descripcion": "Pimentero negro 🧂",
+        "precio": 199,
+        "imagenUrl": "🧂",
+        "categoria": "Comida"
+    },
+    {
+        "id": 41,
+        "titulo": "Sushi",
+        "descripcion": "Sushi japonés elegante 🍣",
+        "precio": 2499,
+        "imagenUrl": "🍣",
+        "categoria": "Comida"
+    },
+    {
+        "id": 42,
+        "titulo": "Bento Box",
+        "descripcion": "Caja bento japonesa 🍱",
+        "precio": 1899,
+        "imagenUrl": "🍱",
+        "categoria": "Comida"
+    },
+    {
+        "id": 43,
+        "titulo": "Curry",
+        "descripcion": "Curry picante y aromático 🍛",
+        "precio": 1599,
+        "imagenUrl": "🍛",
+        "categoria": "Comida"
+    },
+    {
+        "id": 44,
+        "titulo": "Rice Ball",
+        "descripcion": "Bola de arroz japonesa 🍙",
+        "precio": 899,
+        "imagenUrl": "🍙",
+        "categoria": "Comida"
+    },
+    {
+        "id": 45,
+        "titulo": "Rice",
+        "descripcion": "Arroz blanco cocido 🍚",
+        "precio": 699,
+        "imagenUrl": "🍚",
+        "categoria": "Comida"
+    },
+    {
+        "id": 46,
+        "titulo": "Bread",
+        "descripcion": "Pan fresco del horno 🍞",
+        "precio": 799,
+        "imagenUrl": "🍞",
+        "categoria": "Comida"
+    },
+    {
+        "id": 47,
+        "titulo": "Croissant",
+        "descripcion": "Croissant francés 🥐",
+        "precio": 999,
+        "imagenUrl": "🥐",
+        "categoria": "Comida"
+    },
+    {
+        "id": 48,
+        "titulo": "Bagel",
+        "descripcion": "Bagel con agujero 🥯",
+        "precio": 899,
+        "imagenUrl": "🥯",
+        "categoria": "Comida"
+    },
+    {
+        "id": 49,
+        "titulo": "Pretzel",
+        "descripcion": "Pretzel salado 🥨",
+        "precio": 699,
+        "imagenUrl": "🥨",
+        "categoria": "Comida"
+    },
+    {
+        "id": 50,
+        "titulo": "Cheese",
+        "descripcion": "Queso amarillo 🧀",
+        "precio": 1299,
+        "imagenUrl": "🧀",
+        "categoria": "Comida"
+    },
+    {
+        "id": 51,
+        "titulo": "Egg",
+        "descripcion": "Huevo fresco 🥚",
+        "precio": 399,
+        "imagenUrl": "🥚",
+        "categoria": "Comida"
+    },
+    {
+        "id": 52,
+        "titulo": "Bacon",
+        "descripcion": "Tocino crujiente 🥓",
+        "precio": 1499,
+        "imagenUrl": "🥓",
+        "categoria": "Comida"
+    },
+    {
+        "id": 53,
+        "titulo": "Pancakes",
+        "descripcion": "Panqueques con mantequilla 🥞",
+        "precio": 1199,
+        "imagenUrl": "🥞",
+        "categoria": "Comida"
+    },
+    {
+        "id": 54,
+        "titulo": "Waffle",
+        "descripcion": "Waffle belga 🧇",
+        "precio": 1299,
+        "imagenUrl": "🧇",
+        "categoria": "Comida"
+    },
+    {
+        "id": 55,
+        "titulo": "French Fries",
+        "descripcion": "Papas fritas crujientes 🍟",
+        "precio": 999,
+        "imagenUrl": "🍟",
+        "categoria": "Comida"
+    },
+    {
+        "id": 56,
+        "titulo": "Popcorn",
+        "descripcion": "Palomitas de maíz 🍿",
+        "precio": 799,
+        "imagenUrl": "🍿",
+        "categoria": "Comida"
+    },
+    {
+        "id": 57,
+        "titulo": "Doughnut",
+        "descripcion": "Donut glaseado 🍩",
+        "precio": 899,
+        "imagenUrl": "🍩",
+        "categoria": "Comida"
+    },
+    {
+        "id": 58,
+        "titulo": "Cookie Monster",
+        "descripcion": "Monstruo de las galletas 🍪",
+        "precio": 1599,
+        "imagenUrl": "🍪",
+        "categoria": "Diversión"
+    },
+    {
+        "id": 59,
+        "titulo": "Party Hat",
+        "descripcion": "Gorro de fiesta 🎩",
+        "precio": 599,
+        "imagenUrl": "🎩",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 60,
+        "titulo": "Birthday Cake",
+        "descripcion": "Pastel de cumpleaños con velas 🎂",
+        "precio": 2199,
+        "imagenUrl": "🎂",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 61,
+        "titulo": "Balloon",
+        "descripcion": "Globo de fiesta 🎈",
+        "precio": 399,
+        "imagenUrl": "🎈",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 62,
+        "titulo": "Gift",
+        "descripcion": "Regalo envuelto 🎁",
+        "precio": 899,
+        "imagenUrl": "🎁",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 63,
+        "titulo": "Ribbon",
+        "descripcion": "Cinta decorativa 🎀",
+        "precio": 299,
+        "imagenUrl": "🎀",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 64,
+        "titulo": "Tada",
+        "descripcion": "¡Tada! Presentación especial 🎊",
+        "precio": 799,
+        "imagenUrl": "🎊",
+        "categoria": "Celebraciones"
+    },
+    {
+        "id": 65,
+        "titulo": "Diamond",
+        "descripcion": "Diamante brillante 💎",
+        "precio": 9999,
+        "imagenUrl": "💎",
+        "categoria": "Elementos"
+    },
+    {
+        "id": 66,
+        "titulo": "Crystal Ball",
+        "descripcion": "Bola de cristal mágica 🔮",
+        "precio": 3999,
+        "imagenUrl": "🔮",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 67,
+        "titulo": "Magic Wand",
+        "descripcion": "Varita mágica ✨",
+        "precio": 2499,
+        "imagenUrl": "✨",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 68,
+        "titulo": "Fairy",
+        "descripcion": "Hada mágica 🧚",
+        "precio": 1899,
+        "imagenUrl": "🧚",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 69,
+        "titulo": "Genie",
+        "descripcion": "Genio de la lámpara 🧞",
+        "precio": 2999,
+        "imagenUrl": "🧞",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 70,
+        "titulo": "Mermaid",
+        "descripcion": "Sirena del mar 🧜‍♀️",
+        "precio": 2199,
+        "imagenUrl": "🧜‍♀️",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 71,
+        "titulo": "Merman",
+        "descripcion": "Tritón del océano 🧜‍♂️",
+        "precio": 2199,
+        "imagenUrl": "🧜‍♂️",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 72,
+        "titulo": "Vampire",
+        "descripcion": "Vampiro nocturno 🧛",
+        "precio": 1899,
+        "imagenUrl": "🧛",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 73,
+        "titulo": "Zombie",
+        "descripcion": "Zombie caminante 🧟",
+        "precio": 1599,
+        "imagenUrl": "🧟",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 74,
+        "titulo": "Ghost",
+        "descripcion": "Fantasma espeluznante 👻",
+        "precio": 1299,
+        "imagenUrl": "👻",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 75,
+        "titulo": "Skull",
+        "descripcion": "Calavera misteriosa 💀",
+        "precio": 999,
+        "imagenUrl": "💀",
+        "categoria": "Fantasía"
+    },
+    {
+        "id": 76,
+        "titulo": "Spider",
+        "descripcion": "Araña de ocho patas 🕷️",
+        "precio": 799,
+        "imagenUrl": "🕷️",
+        "categoria": "Animales"
+    },
+    {
+        "id": 77,
+        "titulo": "Spider Web",
+        "descripcion": "Telaraña brillante 🕸️",
+        "precio": 599,
+        "imagenUrl": "🕸️",
+        "categoria": "Elementos"
+    },
+    {
+        "id": 78,
+        "titulo": "Bat",
+        "descripcion": "Murciélago nocturno 🦇",
+        "precio": 899,
+        "imagenUrl": "🦇",
+        "categoria": "Animales"
+    },
+    {
+        "id": 79,
+        "titulo": "Snake",
+        "descripcion": "Serpiente deslizante 🐍",
+        "precio": 799,
+        "imagenUrl": "🐍",
+        "categoria": "Animales"
+    },
+    {
+        "id": 80,
+        "titulo": "Frog",
+        "descripcion": "Rana saltarina 🐸",
+        "precio": 599,
+        "imagenUrl": "🐸",
+        "categoria": "Animales"
+    },
+    {
+        "id": 81,
+        "titulo": "Turtle",
+        "descripcion": "Tortuga lenta 🐢",
+        "precio": 699,
+        "imagenUrl": "🐢",
+        "categoria": "Animales"
+    },
+    {
+        "id": 82,
+        "titulo": "Fish",
+        "descripcion": "Pez nadador 🐟",
+        "precio": 499,
+        "imagenUrl": "🐟",
+        "categoria": "Animales"
+    },
+    {
+        "id": 83,
+        "titulo": "Tropical Fish",
+        "descripcion": "Pez tropical colorido 🐠",
+        "precio": 799,
+        "imagenUrl": "🐠",
+        "categoria": "Animales"
+    },
+    {
+        "id": 84,
+        "titulo": "Blowfish",
+        "descripcion": "Pez globo inflado 🐡",
+        "precio": 899,
+        "imagenUrl": "🐡",
+        "categoria": "Animales"
+    },
+    {
+        "id": 85,
+        "titulo": "Shark",
+        "descripcion": "Tiburón feroz 🦈",
+        "precio": 1299,
+        "imagenUrl": "🦈",
+        "categoria": "Animales"
+    },
+    {
+        "id": 86,
+        "titulo": "Octopus",
+        "descripcion": "Pulpo de ocho tentáculos 🐙",
+        "precio": 999,
+        "imagenUrl": "🐙",
+        "categoria": "Animales"
+    },
+    {
+        "id": 87,
+        "titulo": "Spiral Shell",
+        "descripcion": "Concha espiral del mar 🐚",
+        "precio": 599,
+        "imagenUrl": "🐚",
+        "categoria": "Elementos"
+    },
+    {
+        "id": 88,
+        "titulo": "Crab",
+        "descripcion": "Cangrejo caminante 🦀",
+        "precio": 799,
+        "imagenUrl": "🦀",
+        "categoria": "Animales"
+    },
+    {
+        "id": 89,
+        "titulo": "Lobster",
+        "descripcion": "Langosta deliciosa 🦞",
+        "precio": 1899,
+        "imagenUrl": "🦞",
+        "categoria": "Animales"
+    },
+    {
+        "id": 90,
+        "titulo": "Shrimp",
+        "descripcion": "Camarón pequeño 🦐",
+        "precio": 999,
+        "imagenUrl": "🦐",
+        "categoria": "Animales"
+    },
+    {
+        "id": 91,
+        "titulo": "Squid",
+        "descripcion": "Calamar del océano 🦑",
+        "precio": 1199,
+        "imagenUrl": "🦑",
+        "categoria": "Animales"
+    },
+    {
+        "id": 92,
+        "titulo": "Oyster",
+        "descripcion": "Ostra con perla 🦪",
+        "precio": 1499,
+        "imagenUrl": "🦪",
+        "categoria": "Animales"
+    },
+    {
+        "id": 93,
+        "titulo": "Butterfly",
+        "descripcion": "Mariposa colorida 🦋",
+        "precio": 799,
+        "imagenUrl": "🦋",
+        "categoria": "Animales"
+    },
+    {
+        "id": 94,
+        "titulo": "Bee",
+        "descripcion": "Abeja trabajadora 🐝",
+        "precio": 599,
+        "imagenUrl": "🐝",
+        "categoria": "Animales"
+    },
+    {
+        "id": 95,
+        "titulo": "Ant",
+        "descripcion": "Hormiga trabajadora 🐜",
+        "precio": 299,
+        "imagenUrl": "🐜",
+        "categoria": "Animales"
+    },
+    {
+        "id": 96,
+        "titulo": "Lady Beetle",
+        "descripcion": "Mariquita de siete puntos 🐞",
+        "precio": 399,
+        "imagenUrl": "🐞",
+        "categoria": "Animales"
+    },
+    {
+        "id": 97,
+        "titulo": "Cricket",
+        "descripcion": "Grillo cantor 🦗",
+        "precio": 499,
+        "imagenUrl": "🦗",
+        "categoria": "Animales"
+    },
+    {
+        "id": 98,
+        "titulo": "Scorpion",
+        "descripcion": "Escorpión venenoso 🦂",
+        "precio": 899,
+        "imagenUrl": "🦂",
+        "categoria": "Animales"
+    },
+    {
+        "id": 99,
+        "titulo": "Mosquito",
+        "descripcion": "Mosquito zumbador 🦟",
+        "precio": 199,
+        "imagenUrl": "🦟",
+        "categoria": "Animales"
+    },
+    {
+        "id": 100,
+        "titulo": "Microbe",
+        "descripcion": "Microbio microscópico 🦠",
+        "precio": 99,
+        "imagenUrl": "🦠",
+        "categoria": "Tecnología"
+    }]

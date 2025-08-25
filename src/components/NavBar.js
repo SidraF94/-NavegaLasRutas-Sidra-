@@ -1,53 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import BotonModoNocturno from "./BotonModoNocturno";
+import CarritoLateral from "./CarritoLateral";
 import "./NavBar.css";
 
 const NavBar = ({ modoNocturno, cambiarModoNocturno }) => {
-  // Función para navegar a secciones de la página
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      {/* behavior: "smooth" hace que la navegación sea suave */}
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const [carritoAbierto, setCarritoAbierto] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
+  const cerrarMenu = () => {
+    setMenuAbierto(false);
   };
 
   return (
     <nav className={`navbar ${modoNocturno ? 'modo-nocturno' : ''}`}>
       <div className="navbar-container">
-        {/* Logo de la tienda - Hace scroll al inicio al hacer clic */}
+        {/* Logo de la tienda - Hace navegación al inicio */}
         <div className="navbar-logo">
-          <img 
-            src="/logo-tiendaemoji.png" 
-            alt="TiendaEmoji Logo" 
-            className="logo-imagen"
-            onClick={() => scrollToSection("inicio")}
-            style={{ cursor: "pointer" }}
-          />
+          <Link to="/" onClick={cerrarMenu}>
+            <img 
+              src="/logo-tiendaemoji.png" 
+              alt="TiendaEmoji Logo" 
+              className="logo-imagen"
+              style={{ cursor: "pointer" }}
+            />
+          </Link>
         </div>
         
-        {/* Menú de navegación principal */}
-        <ul className="navbar-menu">
+        {/* Botón hamburguesa para móviles */}
+        <button 
+          className={`hamburger ${menuAbierto ? 'activo' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Menú de navegación"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         
-          <li><a onClick={() => scrollToSection("inicio")} style={{ cursor: "pointer" }}>Inicio</a></li>
-          <li><a onClick={() => scrollToSection("productos")} style={{ cursor: "pointer" }}>Productos</a></li>
-          <li><a onClick={() => scrollToSection("sobre-nosotros")} style={{ cursor: "pointer" }}>Sobre Nosotros</a></li>
-          <li><a onClick={() => scrollToSection("contacto")} style={{ cursor: "pointer" }}>Contacto</a></li>
+        {/* Menú de navegación principal */}
+        <ul className={`navbar-menu ${menuAbierto ? 'activo' : ''}`}>
+          <li><Link to="/" onClick={cerrarMenu}>Inicio</Link></li>
+          <li><Link to="/" onClick={cerrarMenu}>Productos</Link></li>
+          <li><Link to="/sobre-nosotros" onClick={cerrarMenu}>Sobre Nosotros</Link></li>
+          <li><Link to="/contacto" onClick={cerrarMenu}>Contacto</Link></li>
         </ul>
         
         {/* Contenedor de widgets (carrito + modo nocturno) */}
         <div className="navbar-widgets">
-          <CartWidget />
+          <CartWidget 
+            modoNocturno={modoNocturno}
+            onAbrirCarrito={() => setCarritoAbierto(true)}
+          />
           
           <BotonModoNocturno 
             modoNocturno={modoNocturno}
-            //cambiarModoNocturno es la función que se ejecuta 
-            // al hacer clic en el botón de modo nocturno
             cambiarModo={cambiarModoNocturno} 
           />
         </div>
       </div>
+      
+      {/* Barra lateral del carrito */}
+      <CarritoLateral 
+        isOpen={carritoAbierto}
+        onClose={() => setCarritoAbierto(false)}
+        modoNocturno={modoNocturno}
+      />
     </nav>
   );
 };

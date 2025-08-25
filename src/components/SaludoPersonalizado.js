@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
-
 const SaludoPersonalizado = ({ cuandoElNombreCambia }) => {
   //nombreUsuario no se usa en este componente, se usa en el componente padre App.js
   const [nombreUsuario, setNombreUsuario] = useState("");
@@ -10,8 +9,16 @@ const SaludoPersonalizado = ({ cuandoElNombreCambia }) => {
 
   //useEffect se utiliza despues de renderiizar el componente. 
   useEffect(() => {
-    // Solo mostrar el SweetAlert si no se ha saludado antes
-    if (!haSaludado) {
+    // Verificar si ya hay un nombre guardado en localStorage
+    const nombreGuardado = localStorage.getItem('nombreUsuario');
+    
+    if (nombreGuardado) {
+      // Si hay un nombre guardado, usarlo directamente
+      setNombreUsuario(nombreGuardado);
+      setHaSaludado(true);
+      cuandoElNombreCambia(nombreGuardado);
+    } else if (!haSaludado) {
+      // Solo mostrar el SweetAlert si no se ha saludado antes y no hay nombre guardado
       const preguntarNombre = async () => {
         const { value: nombre } = await Swal.fire({
           title: "Bienvenido a TiendaEmoji! 🛍️",
@@ -40,6 +47,9 @@ const SaludoPersonalizado = ({ cuandoElNombreCambia }) => {
         if (nombre) {
           setNombreUsuario(nombre);
           setHaSaludado(true);
+          
+          // Guardar el nombre en localStorage
+          localStorage.setItem('nombreUsuario', nombre);
           
           // Notificar al componente padre sobre el cambio de nombre
           cuandoElNombreCambia(nombre);

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailPage from './components/ItemDetailPage';
+import PaginaNoEncontrada from './components/PaginaNoEncontrada';
 import SobreNosotros from './components/SobreNosotros';
 import Contacto from './components/Contacto';
 import SaludoPersonalizado from './components/SaludoPersonalizado';
@@ -34,14 +37,21 @@ function App() {
     : 'Bienvenidos a TiendaEmoji!';
 
   return (
-    //Llamamos a todos los componentes
-    <div className={`App ${modoNocturno ? 'modo-nocturno' : ''}`} id="inicio">
-      <SaludoPersonalizado cuandoElNombreCambia={cuandoElNombreCambia} />
-      <NavBar modoNocturno={modoNocturno} cambiarModoNocturno={cambiarModoNocturno} />
-      <ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />
-      <SobreNosotros modoNocturno={modoNocturno} />
-      <Contacto modoNocturno={modoNocturno} />
-    </div>
+    <BrowserRouter>
+      <div className={`App ${modoNocturno ? 'modo-nocturno' : ''}`} id="inicio">
+        <SaludoPersonalizado cuandoElNombreCambia={cuandoElNombreCambia} />
+        <NavBar modoNocturno={modoNocturno} cambiarModoNocturno={cambiarModoNocturno} />
+
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
+          <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
+          <Route path="/item/:id" element={<ItemDetailPage modoNocturno={modoNocturno} />} />
+          <Route path="/sobre-nosotros" element={<SobreNosotros modoNocturno={modoNocturno} />} />
+          <Route path="/contacto" element={<Contacto modoNocturno={modoNocturno} />} />
+          <Route path="*" element={<PaginaNoEncontrada modoNocturno={modoNocturno} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

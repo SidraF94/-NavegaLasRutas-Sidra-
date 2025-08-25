@@ -187,29 +187,6 @@
   min-height: 120px;
 }
 
-.boton-enviar {
-  background: #f59a16;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 50%;
-  
-}
-
-.boton-enviar:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(245, 154, 22, 0.4);
-}
-
-.boton-enviar:active {
-  transform: translateY(0);
-}
-
 @media (max-width: 768px) {
   .contacto {
     padding: 4rem 0;

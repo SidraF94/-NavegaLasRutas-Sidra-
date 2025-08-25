@@ -1,4 +1,5 @@
 import React from "react";
+import Boton from "./Boton";
 import "./Contacto.css";
 
 //Componente de contacto con todo lo que es html, quizas el mas extenso del proyecto
@@ -56,9 +57,9 @@ const Contacto = ({ modoNocturno }) => {
               <div className="grupo-formulario">
                 <textarea placeholder="Tu mensaje" rows="4" required></textarea>
               </div>
-              <button type="submit" className="boton-enviar">
+              <Boton type="submit" className="boton-enviar">
                 📤 Enviar Mensaje
-              </button>
+              </Boton>
             </form>
           </div>
         </div>

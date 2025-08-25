@@ -1,3 +1,8 @@
+.widget-carrito-container {
+  display: flex;
+  align-items: center;
+}
+
 .widget-carrito {
   position: relative;
   cursor: pointer;
@@ -39,4 +44,6 @@
   justify-content: center;
   font-size: 0.8rem;
   min-width: 20px;
-} 
+}
+
+ 
