@@ -1,0 +1,134 @@
+.contenedor-lista-productos {
+  padding: 2rem 0;
+  background: #f8f9fa;
+  min-height: 80vh;
+  transition: all 0.3s ease;
+}
+
+.contenedor-lista-productos.modo-nocturno {
+  background: #2c3e50;
+}
+
+.contenido-contenedor {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contenido-contenedor h1 {
+  color: #666;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contenido-contenedor.modo-nocturno h1 {
+  color: #ecf0f1;
+}
+
+.info-categoria {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e9ecef;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.info-categoria p {
+  margin: 0;
+  color: #495057;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.info-categoria strong {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.modo-nocturno .info-categoria {
+  background: #2c3e50;
+  border-color: #34495e;
+}
+
+.modo-nocturno .info-categoria p {
+  color: #ecf0f1;
+}
+
+.modo-nocturno .info-categoria strong {
+  color: #3182ce;
+}
+
+.boton-volver-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-volver-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+}
+
+.boton-volver-top:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.modo-nocturno .boton-volver-top {
+  background: linear-gradient(135deg, #3182ce 0%, #553c9a 100%);
+  box-shadow: 0 8px 25px rgba(49, 130, 206, 0.4);
+}
+
+.modo-nocturno .boton-volver-top:hover {
+  box-shadow: 0 12px 35px rgba(49, 130, 206, 0.6);
+}
+
+@media (max-width: 768px) {
+  .contenido-contenedor h1 {
+    font-size: 2rem;
+  }
+  
+  .info-categoria {
+    max-width: 350px;
+    padding: 15px;
+    margin: 15px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-categoria {
+    max-width: 320px;
+    padding: 12px;
+    margin: 12px auto;
+  }
+  
+  .boton-volver-top {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
