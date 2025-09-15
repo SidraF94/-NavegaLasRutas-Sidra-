@@ -69,7 +69,7 @@ const useEmojis = (categoriaId) => {
     setEmojisVisibles(prev => [...prev, ...siguientePaquete]);
     setHayMas(emojisVisibles.length + 8 < emojis.length);
     setCargandoMas(false);
-  }, [cargandoMas, hayMas, emojisVisibles.length, emojis.length, emojis]);
+  }, [cargandoMas, hayMas, emojisVisibles.length, emojis]);
 
   useEffect(() => {
     cargarEmojis();

@@ -1,4 +1,3 @@
-import React from "react";
 import useSaludoPersonalizado from "../../hooks/useSaludoPersonalizado";
 
 const SaludoPersonalizado = ({ cuandoElNombreCambia }) => {

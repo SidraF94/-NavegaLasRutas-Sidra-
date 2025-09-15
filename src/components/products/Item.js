@@ -6,20 +6,18 @@ import ItemActions from './ItemActions';
 import './Item.css';
 
 const Item = ({ item, modoNocturno }) => {
-  const { id, titulo, descripcion, precio, imagenUrl, slug } = item;
+  const { titulo, descripcion, precio, imagenUrl, slug } = item;
   const navigate = useNavigate();
   const { stockActual, agregarAlCarrito } = useItem(item);
 
   const irADetalle = () => {
-    // Usar slug si existe, sino usar id como fallback
-    const routeId = slug || id;
-    navigate(`/item/${routeId}`);
+    navigate(`/item/${slug}`);
   };
 
   return (
     <div className="item-card">
       <div className="item-emoji" onClick={irADetalle} style={{ cursor: 'pointer' }}>
-        <span className="emoji-display">{imagenUrl}</span>
+        <span>{imagenUrl}</span>
       </div>
       
       <ItemInfo

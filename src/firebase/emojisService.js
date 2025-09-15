@@ -160,6 +160,43 @@ export const getEmojiBySlug = async (slug) => {
   }
 };
 
+export const checkSlugExists = async (slug) => {
+  try {
+    const emojis = await getAllEmojis();
+    const foundEmoji = emojis.find(emoji => emoji.slug === slug);
+    return foundEmoji ? true : false;
+  } catch (error) {
+    console.error('Error verificando slug:', error);
+    return false;
+  }
+};
+
+
+export const getEmojiByEmoji = async (emoji) => {
+  try {
+    const emojis = await getAllEmojis();
+    const foundEmoji = emojis.find(item => item.imagenUrl === emoji);
+    
+    if (foundEmoji) {
+      return foundEmoji;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error('Error obteniendo emoji por emoji:', error);
+    throw error;
+  }
+};
+
+export const updateEmojiStock = async (id, cantidad) => {
+  try {
+    const emojiRef = doc(db, COLLECTION_NAME, id);
+    await updateDoc(emojiRef, { stock: cantidad });
+  } catch (error) {
+    console.error('Error actualizando stock:', error);
+    throw error;
+  }
+};
 
 export const getCategories = async () => {
   try {

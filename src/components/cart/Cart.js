@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useCartContext from '../../hooks/useCartContext';
 import useSweetAlert from '../../hooks/useSweetAlert';
-import useFormateo from '../../hooks/useFormateo';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter';
 import CartEmpty from './CartEmpty';
@@ -19,7 +18,6 @@ const Cart = ({ modoNocturno }) => {
     showPaymentProcessing,
     showPaymentSuccess
   } = useSweetAlert();
-  const { formatearPrecio } = useFormateo();
   const navigate = useNavigate();
 
   const handleQuitarItem = (id) => {

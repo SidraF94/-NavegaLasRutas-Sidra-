@@ -1,0 +1,99 @@
+.emoji-search {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.emoji-search .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.emoji-search .input-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.emoji-search .input-group input {
+  padding: 14px 16px;
+  border: 2px solid #ced4da;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+  color: #2c3e50;
+}
+
+.emoji-search .input-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  transform: translateY(-1px);
+}
+
+.boton-buscar {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.boton-buscar:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+}
+
+.boton-buscar:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Modo nocturno */
+.emoji-search.modo-nocturno {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-color: #4a6741;
+  color: #ecf0f1;
+}
+
+.emoji-search.modo-nocturno .input-group label {
+  color: #ecf0f1;
+}
+
+.emoji-search.modo-nocturno .input-group input {
+  background: #34495e;
+  border-color: #4a6741;
+  color: #ecf0f1;
+}
+
+.emoji-search.modo-nocturno .input-group input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+@media (max-width: 768px) {
+  .emoji-search {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+}

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import useCartContext from '../../hooks/useCartContext';
 import useSweetAlert from '../../hooks/useSweetAlert';
-import useFormateo from '../../hooks/useFormateo';
 import CartItem from './CartItem';
 import CartFooter from './CartFooter';
 import CartEmpty from './CartEmpty';
@@ -18,7 +17,6 @@ const CarritoLateral = ({ isOpen, onClose, modoNocturno }) => {
     showPaymentProcessing, 
     showPaymentSuccess 
   } = useSweetAlert();
-  const { formatearPrecio } = useFormateo();
 
   useEffect(() => {
   }, [isOpen]);
@@ -49,15 +47,12 @@ const CarritoLateral = ({ isOpen, onClose, modoNocturno }) => {
     const result = await showPaymentConfirm(total, carrito);
 
     if (result.isConfirmed) {
-      // Mostrar procesando pago con timer automático
-      await showPaymentProcessing();
-      
-      // Esperar a que se cierre automáticamente y luego mostrar éxito
+      await showPaymentProcessing();  
       setTimeout(async () => {
         await showPaymentSuccess(total);
-        pagar(); // Usar pagar() en lugar de clear() para restauración parcial
+        pagar(); 
         onClose();
-      }, 100); // Pequeño delay para asegurar que el modal anterior se cerró
+      }, 100); 
     }
   };
 

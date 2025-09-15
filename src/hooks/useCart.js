@@ -32,11 +32,6 @@ const useCart = () => {
     
     setCarrito(carritoActual);
     
-    const stockId = item.idOriginal || item.id;
-    const stockActual = parseInt(sessionStorage.getItem(`stock_${stockId}`) || STOCK_INICIAL.toString());
-    const nuevoStock = Math.max(0, stockActual - cantidad);
-    sessionStorage.setItem(`stock_${stockId}`, nuevoStock.toString());
-    
     window.dispatchEvent(new CustomEvent('carritoActualizado', { 
       detail: { carrito: carritoActual } 
     }));
@@ -45,14 +40,6 @@ const useCart = () => {
   };
 
   const quitarItem = (id) => {
-    const itemAQuitar = carrito.find(item => item.id === id);
-    if (!itemAQuitar) return;
-
-    const stockId = itemAQuitar.idOriginal || id;
-    const stockActual = parseInt(sessionStorage.getItem(`stock_${stockId}`) || '0');
-    const stockRestaurado = stockActual + itemAQuitar.cantidad;
-    sessionStorage.setItem(`stock_${stockId}`, stockRestaurado.toString());
-    
     const carritoActualizado = carrito.filter(item => item.id !== id);
     setCarrito(carritoActualizado);
     
@@ -62,13 +49,6 @@ const useCart = () => {
   };
 
   const limpiarCarrito = () => {
-    carrito.forEach(item => {
-      const stockId = item.idOriginal || item.id;
-      const stockActual = parseInt(sessionStorage.getItem(`stock_${stockId}`) || '0');
-      const stockRestaurado = stockActual + item.cantidad;
-      sessionStorage.setItem(`stock_${stockId}`, stockRestaurado.toString());
-    });
-
     setCarrito([]);
     setTotal(0);
     
@@ -85,7 +65,7 @@ const useCart = () => {
     };
 
     window.addEventListener('carritoActualizado', handleCarritoActualizado);
-    
+
     return () => {
       window.removeEventListener('carritoActualizado', handleCarritoActualizado);
     };

@@ -3,9 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Boton from '../ui/Boton';
 import ItemCount from '../cart/ItemCount';
 import useSweetAlert from '../../hooks/useSweetAlert';
-import useFormateo from '../../hooks/useFormateo';
+import { formatearPrecio } from '../../utils/formatters';
 import useCartContext from '../../hooks/useCartContext';
-import { getStockDisponible } from '../../utils/stockManager';
 import { getEmojiBySlug } from '../../firebase/emojisService';
 import './ItemDetailPage.css';
 
@@ -16,8 +15,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [stockActual, setStockActual] = useState(50);
-  const { showAddToCart, showError } = useSweetAlert();
-  const { formatearPrecio } = useFormateo();
+  const { showAddToCart } = useSweetAlert();
   const { addItem, getTotalItems, isInCart } = useCartContext();
 
   useEffect(() => {
@@ -29,8 +27,8 @@ const ItemDetailPage = ({ modoNocturno }) => {
         
         if (foundItem) {
           setItem(foundItem);
-          const stockId = foundItem.idOriginal || foundItem.id;
-          const stock = getStockDisponible(stockId);
+          // Usar el stock de Firestore directamente
+          const stock = foundItem.stock || 50; // Fallback a 50 si no hay stock definido
           setStockActual(stock);
         } else {
           setError('Emoji no encontrado en Firestore');
@@ -47,8 +45,8 @@ const ItemDetailPage = ({ modoNocturno }) => {
 
   useEffect(() => {
     const handleStockActualizado = (event) => {
-      const stockId = item?.idOriginal || id;
-      if (event.detail.itemId === parseInt(stockId)) {
+      const stockId = item?.id;
+      if (event.detail.itemId === stockId) {
         setStockActual(event.detail.nuevoStock);
       }
     };
@@ -140,7 +138,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
             <div className="item-detail-adicional">
               <div className="info-item">
                 <span className="info-label">ID:</span>
-                <span className="info-value">#{id}</span>
+                <span className="info-value">{item.id}</span>
               </div>
               <div className="info-item">
                 <span className="info-label">Categoría:</span>

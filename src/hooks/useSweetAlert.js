@@ -152,6 +152,18 @@ const useSweetAlert = () => {
     });
   };
 
+  const showSuccess = (title, text) => {
+    return Swal.fire({
+      title: title || '¡Éxito!',
+      text: text || 'Operación completada',
+      icon: 'success',
+      timer: 2000,
+      showConfirmButton: false,
+      toast: true,
+      position: 'top-end'
+    });
+  };
+
   const showError = (title, text) => {
     return Swal.fire({
       title: title || '¡Ups! Algo salió mal',
@@ -172,6 +184,7 @@ const useSweetAlert = () => {
     showPaymentConfirm,
     showPaymentProcessing,
     showPaymentSuccess,
+    showSuccess,
     showError
   };
 };

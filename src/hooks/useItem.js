@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import useSweetAlert from './useSweetAlert';
 import useCartContext from './useCartContext';
-import { getStockDisponible } from '../utils/stockManager';
 
 const useItem = (item) => {
   const [stockActual, setStockActual] = useState(0);
@@ -9,9 +8,10 @@ const useItem = (item) => {
   const { addItem } = useCartContext();
 
   useEffect(() => {
-    const stock = getStockDisponible(item.id);
+    // Usar el stock de Firestore directamente
+    const stock = item.stock || 50; // Fallback a 50 si no hay stock definido
     setStockActual(stock);
-  }, [item.id]);
+  }, [item.id, item.stock]);
 
   useEffect(() => {
     const handleStockActualizado = (event) => {

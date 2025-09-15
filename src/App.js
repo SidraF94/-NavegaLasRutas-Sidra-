@@ -9,6 +9,7 @@ import SobreNosotros from './components/pages/SobreNosotros';
 import Contacto from './components/pages/Contacto';
 import SaludoPersonalizado from './components/layout/SaludoPersonalizado';
 import Cart from './components/cart/Cart';
+import AdminEmojis from './components/admin/AdminEmojis';
 import useLocalStorage from './hooks/useLocalStorage';
 import CartProvider from './context/CartProvider';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
             <Route path="/item/:id" element={<ItemDetailPage modoNocturno={modoNocturno} />} />
             <Route path="/cart" element={<Cart modoNocturno={modoNocturno} />} />
+            <Route path="/admin" element={<AdminEmojis modoNocturno={modoNocturno} />} />
             <Route path="/sobre-nosotros" element={<SobreNosotros modoNocturno={modoNocturno} />} />
             <Route path="/contacto" element={<Contacto modoNocturno={modoNocturno} />} />
             <Route path="*" element={<PaginaNoEncontrada modoNocturno={modoNocturno} />} />
