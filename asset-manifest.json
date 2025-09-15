@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/-NavegaLasRutas-Sidra-/static/css/main.3ed39652.css",
-    "main.js": "/-NavegaLasRutas-Sidra-/static/js/main.3be7af9a.js",
-    "static/js/833.82a1ead8.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/833.82a1ead8.chunk.js",
+    "main.css": "/-NavegaLasRutas-Sidra-/static/css/main.ab581e3a.css",
+    "main.js": "/-NavegaLasRutas-Sidra-/static/js/main.ce5816ff.js",
+    "static/js/239.95edf5db.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/239.95edf5db.chunk.js",
+    "static/js/977.84756c5d.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/977.84756c5d.chunk.js",
+    "static/js/732.620b5ba4.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/732.620b5ba4.chunk.js",
+    "static/js/600.2b5daeda.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/600.2b5daeda.chunk.js",
     "static/js/453.6236ba0a.chunk.js": "/-NavegaLasRutas-Sidra-/static/js/453.6236ba0a.chunk.js",
     "index.html": "/-NavegaLasRutas-Sidra-/index.html",
-    "main.3ed39652.css.map": "/-NavegaLasRutas-Sidra-/static/css/main.3ed39652.css.map",
-    "main.3be7af9a.js.map": "/-NavegaLasRutas-Sidra-/static/js/main.3be7af9a.js.map",
+    "main.ab581e3a.css.map": "/-NavegaLasRutas-Sidra-/static/css/main.ab581e3a.css.map",
+    "main.ce5816ff.js.map": "/-NavegaLasRutas-Sidra-/static/js/main.ce5816ff.js.map",
+    "239.95edf5db.chunk.js.map": "/-NavegaLasRutas-Sidra-/static/js/239.95edf5db.chunk.js.map",
+    "977.84756c5d.chunk.js.map": "/-NavegaLasRutas-Sidra-/static/js/977.84756c5d.chunk.js.map",
+    "732.620b5ba4.chunk.js.map": "/-NavegaLasRutas-Sidra-/static/js/732.620b5ba4.chunk.js.map",
+    "600.2b5daeda.chunk.js.map": "/-NavegaLasRutas-Sidra-/static/js/600.2b5daeda.chunk.js.map",
     "453.6236ba0a.chunk.js.map": "/-NavegaLasRutas-Sidra-/static/js/453.6236ba0a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ed39652.css",
-    "static/js/main.3be7af9a.js"
+    "static/css/main.ab581e3a.css",
+    "static/js/main.ce5816ff.js"
   ]
 }

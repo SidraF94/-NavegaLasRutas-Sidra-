@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmi_proyecto_react=self.webpackChunkmi_proyecto_react||[]).push([[600],{600:(a,e,r)=>{r.d(e,{crearCompra:()=>t});var c=r(667),o=r(662);const t=async a=>{try{const e=(0,c.rJ)(o.db,"compras");return{id:(await(0,c.gS)(e,{...a,fecha:new Date,estado:"completada"})).id,...a,fecha:new Date,estado:"completada"}}catch(e){throw console.error("Error creando compra:",e),e}}}}]);
+//# sourceMappingURL=600.2b5daeda.chunk.js.map
