@@ -6,12 +6,12 @@ const EmojiSearch = ({ emoji, setEmoji, onSearch, loading, modoNocturno }) => {
   return (
     <div className={`emoji-search ${modoNocturno ? 'modo-nocturno' : ''}`}>
       <div className="input-group">
-        <label>Emoji:</label>
+        <label>Buscar o agregar emoji:</label>
         <input
           type="text"
           value={emoji}
           onChange={(e) => setEmoji(e.target.value)}
-          placeholder="😊"
+          placeholder="Ingresar un emoji"
           maxLength="2"
         />
       </div>
