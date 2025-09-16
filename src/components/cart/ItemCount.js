@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Boton from '../ui/Boton';
 import './ItemCount.css';
 
-const ItemCount = ({ stock, initial = 1, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd, disabled = false }) => {
   const [cantidad, setCantidad] = useState(initial);
 
   React.useEffect(() => {
@@ -36,7 +36,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
       <div className="controles-cantidad">
         <Boton 
           onClick={decrementar}
-          disabled={cantidad <= 1 || stock === 0}
+          disabled={disabled || cantidad <= 1 || stock === 0}
           className="boton-cantidad"
         >
           -
@@ -46,7 +46,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
         
         <Boton 
           onClick={incrementar}
-          disabled={cantidad >= stock || stock === 0}
+          disabled={disabled || cantidad >= stock || stock === 0}
           className="boton-cantidad"
         >
           +
@@ -59,7 +59,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
 
       <Boton 
         onClick={agregarAlCarrito}
-        disabled={stock === 0 || cantidad === 0}
+        disabled={disabled || stock === 0 || cantidad === 0}
         className="boton-agregar-carrito"
       >
         {stock === 0 ? '❌ Sin Stock' : `🛒 Agregar al Carrito (${cantidad})`}

@@ -2,59 +2,38 @@ import React, { useState, useEffect } from 'react';
 import CartContext from './CartContext';
 import useSessionStorage from '../hooks/useSessionStorage';
 import { STORAGE_KEYS } from '../utils/constants';
-import { updateEmojiStock, getEmojiById } from '../firebase/emojisService';
+import useStockOperations from '../hooks/useStockOperations';
+import { 
+  createCartItem, 
+  calculateTotalItems, 
+  calculateTotalPrice, 
+  findCartItem, 
+  updateItemQuantity 
+} from '../utils/cartHelpers';
 
 const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useSessionStorage(STORAGE_KEYS.CARRITO, []);
   const [total, setTotal] = useState(0);
-
-  const calcularTotal = (items) => {
-    return items.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-  };
+  const { reduceStock, restoreStock } = useStockOperations();
 
   useEffect(() => {
-    setTotal(calcularTotal(carrito));
+    setTotal(calculateTotalPrice(carrito));
   }, [carrito]);
 
   const addItem = async (item, quantity = 1) => {
     try {
-      const emojiData = await getEmojiById(item.id);
-      if (!emojiData || emojiData.stock < quantity) {
+      const stockReduced = await reduceStock(item.id, quantity);
+      if (!stockReduced) {
         return false;
       }
 
-      const nuevoStock = emojiData.stock - quantity;
-      await updateEmojiStock(item.id, nuevoStock);
-
       setCarrito(prevCarrito => {
-        const existe = prevCarrito.find(cartItem => cartItem.id === item.id);
+        const existe = findCartItem(prevCarrito, item.id);
         
         if (existe) {
-          const nuevoCarrito = prevCarrito.map(cartItem =>
-            cartItem.id === item.id
-              ? { ...cartItem, cantidad: cartItem.cantidad + quantity }
-              : cartItem
-          );
-          
-          window.dispatchEvent(new CustomEvent('stockActualizado', { 
-            detail: { itemId: item.id, nuevoStock } 
-          }));
-          
-          return nuevoCarrito;
+          return updateItemQuantity(prevCarrito, item.id, quantity);
         } else {
-          const nuevoCarrito = [...prevCarrito, {
-            id: item.id,
-            titulo: item.titulo,
-            precio: item.precio,
-            imagenUrl: item.imagenUrl,
-            cantidad: quantity
-          }];
-          
-          window.dispatchEvent(new CustomEvent('stockActualizado', { 
-            detail: { itemId: item.id, nuevoStock } 
-          }));
-          
-          return nuevoCarrito;
+          return [...prevCarrito, createCartItem(item, quantity)];
         }
       });
       return true;
@@ -65,45 +44,19 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = async (itemId) => {
-    const itemAQuitar = carrito.find(item => item.id === itemId);
+    const itemAQuitar = findCartItem(carrito, itemId);
     if (!itemAQuitar) return;
     
-    try {
-      const emojiData = await getEmojiById(itemId);
-      if (emojiData) {
-        const nuevoStock = emojiData.stock + itemAQuitar.cantidad;
-        await updateEmojiStock(itemId, nuevoStock);
-        
-        window.dispatchEvent(new CustomEvent('stockActualizado', { 
-          detail: { itemId, nuevoStock } 
-        }));
-      }
-    } catch (error) {
-      console.error('Error al restaurar stock:', error);
-    }
-    
-    setCarrito(prevCarrito => {
-      const nuevoCarrito = prevCarrito.filter(item => item.id !== itemId);
-      return nuevoCarrito;
-    });
+    await restoreStock(itemId, itemAQuitar.cantidad);
+    setCarrito(prevCarrito => 
+      prevCarrito.filter(item => item.id !== itemId)
+    );
   };
 
-    const clear = async () => {
-    for (const item of carrito) {
-      try {
-        const emojiData = await getEmojiById(item.id);
-        if (emojiData) {
-          const nuevoStock = emojiData.stock + item.cantidad;
-          await updateEmojiStock(item.id, nuevoStock);
-          
-          window.dispatchEvent(new CustomEvent('stockActualizado', { 
-            detail: { itemId: item.id, nuevoStock } 
-          }));
-        }
-      } catch (error) {
-        console.error('Error al restaurar stock:', error);
-      }
-    }
+  const clear = async () => {
+    await Promise.all(
+      carrito.map(item => restoreStock(item.id, item.cantidad))
+    );
 
     setCarrito([]);
   };
@@ -115,7 +68,7 @@ const CartProvider = ({ children }) => {
       const compraData = {
         items: carrito,
         total: total,
-        cantidadItems: carrito.reduce((sum, item) => sum + item.cantidad, 0),
+        cantidadItems: calculateTotalItems(carrito),
         fecha: new Date()
       };
       
@@ -131,16 +84,16 @@ const CartProvider = ({ children }) => {
   };
 
   const isInCart = (id) => {
-    return carrito.some(item => item.id === id);
+    return findCartItem(carrito, id) !== undefined;
   };
 
   const getItemQuantity = (id) => {
-    const item = carrito.find(item => item.id === id);
+    const item = findCartItem(carrito, id);
     return item ? item.cantidad : 0;
   };
 
   const getTotalItems = () => {
-    return carrito.reduce((sum, item) => sum + item.cantidad, 0);
+    return calculateTotalItems(carrito);
   };
 
   const value = {

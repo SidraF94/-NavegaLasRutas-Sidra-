@@ -6,7 +6,8 @@ const ItemActions = ({
   onVerDetalle, 
   onAgregarCarrito, 
   stockActual, 
-  modoNocturno 
+  modoNocturno,
+  disabled = false
 }) => {
   return (
     <div className={`item-actions ${modoNocturno ? 'modo-nocturno' : ''}`}>
@@ -19,10 +20,10 @@ const ItemActions = ({
       
       <Boton 
         onClick={onAgregarCarrito}
-        disabled={stockActual === 0}
+        disabled={disabled || stockActual === 0}
         className="boton-agregar-carrito"
       >
-        {stockActual === 0 ? '❌ Sin Stock' : '🛒 Agregar'}
+        {disabled ? '⏳ Agregando...' : stockActual === 0 ? '❌ Sin Stock' : '🛒 Agregar'}
       </Boton>
     </div>
   );

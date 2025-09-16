@@ -1,40 +1,34 @@
 import { useState, useEffect } from 'react';
 import useSweetAlert from './useSweetAlert';
 import useCartContext from './useCartContext';
+import { useStock } from './useStock';
 
 const useItem = (item) => {
-  const [stockActual, setStockActual] = useState(0);
+  const [addingToCart, setAddingToCart] = useState(false);
   const { showAddToCart } = useSweetAlert();
   const { addItem } = useCartContext();
+  const { stock, reduceStock, isAvailable } = useStock(item.id, item.stock || 50);
 
-  useEffect(() => {
-    const stock = item.stock || 50; 
-    setStockActual(stock);
-  }, [item.id, item.stock]);
-
-  useEffect(() => {
-    const handleStockActualizado = (event) => {
-      if (event.detail.itemId === item.id) {
-        setStockActual(event.detail.nuevoStock);
+  const agregarAlCarrito = async () => {
+    if (addingToCart || !isAvailable(1)) return;
+    
+    setAddingToCart(true);
+    try {
+      const exito = await addItem(item, 1);
+      if (exito) {
+        showAddToCart(item.titulo, 1);
       }
-    };
-
-    window.addEventListener('stockActualizado', handleStockActualizado);
-    return () => {
-      window.removeEventListener('stockActualizado', handleStockActualizado);
-    };
-  }, [item.id]);
-
-  const agregarAlCarrito = () => {
-    const exito = addItem(item, 1);
-    if (exito) {
-      showAddToCart(item.titulo, 1);
+    } catch (error) {
+      console.error('Error al agregar al carrito:', error);
+    } finally {
+      setAddingToCart(false);
     }
   };
 
   return {
-    stockActual,
-    agregarAlCarrito
+    stockActual: stock,
+    agregarAlCarrito,
+    addingToCart
   };
 };
 

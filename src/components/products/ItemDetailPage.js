@@ -15,6 +15,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [stockActual, setStockActual] = useState(50);
+  const [addingToCart, setAddingToCart] = useState(false);
   const { showAddToCart } = useSweetAlert();
   const { addItem, getTotalItems, isInCart } = useCartContext();
 
@@ -42,19 +43,6 @@ const ItemDetailPage = ({ modoNocturno }) => {
     fetchItem();
   }, [id]);
 
-  useEffect(() => {
-    const handleStockActualizado = (event) => {
-      const stockId = item?.id;
-      if (event.detail.itemId === stockId) {
-        setStockActual(event.detail.nuevoStock);
-      }
-    };
-
-    window.addEventListener('stockActualizado', handleStockActualizado);
-    return () => {
-      window.removeEventListener('stockActualizado', handleStockActualizado);
-    };
-  }, [item?.id]);
 
 
   const volverAProductos = () => {
@@ -66,10 +54,17 @@ const ItemDetailPage = ({ modoNocturno }) => {
   };
 
   const agregarAlCarrito = async (cantidad) => {
-    if (item) {
-      const exito = await addItem(item, cantidad);
-      if (exito) {
-        showAddToCart(item.titulo, cantidad);
+    if (item && !addingToCart) {
+      setAddingToCart(true);
+      try {
+        const exito = await addItem(item, cantidad);
+        if (exito) {
+          showAddToCart(item.titulo, cantidad);
+        }
+      } catch (error) {
+        console.error('Error al agregar al carrito:', error);
+      } finally {
+        setAddingToCart(false);
       }
     }
   };
@@ -161,6 +156,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
                   stock={stockActual}
                   initial={1}
                   onAdd={agregarAlCarrito}
+                  disabled={addingToCart}
                 />
               )}
               

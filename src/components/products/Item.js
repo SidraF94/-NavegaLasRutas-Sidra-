@@ -8,7 +8,7 @@ import './Item.css';
 const Item = ({ item, modoNocturno }) => {
   const { titulo, descripcion, precio, imagenUrl, slug } = item;
   const navigate = useNavigate();
-  const { stockActual, agregarAlCarrito } = useItem(item);
+  const { stockActual, agregarAlCarrito, addingToCart } = useItem(item);
 
   const irADetalle = () => {
     navigate(`/item/${slug}`);
@@ -33,6 +33,7 @@ const Item = ({ item, modoNocturno }) => {
         onAgregarCarrito={agregarAlCarrito}
         stockActual={stockActual}
         modoNocturno={modoNocturno}
+        disabled={addingToCart}
       />
     </div>
   );

@@ -12,6 +12,7 @@ import Cart from './components/cart/Cart';
 import AdminEmojis from './components/admin/AdminEmojis';
 import useLocalStorage from './hooks/useLocalStorage';
 import CartProvider from './context/CartProvider';
+import { StockProvider } from './context/StockContext';
 
 function App() {
   const [nombreUsuario, setNombreUsuario] = useState('');
@@ -31,25 +32,27 @@ function App() {
     : 'Bienvenidos a TiendaEmoji!';
 
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <div className={`App ${modoNocturno ? 'modo-nocturno' : ''}`} id="inicio">
-          <SaludoPersonalizado cuandoElNombreCambia={cuandoElNombreCambia} />
-          <NavBar modoNocturno={modoNocturno} cambiarModoNocturno={cambiarModoNocturno} />
+    <StockProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <div className={`App ${modoNocturno ? 'modo-nocturno' : ''}`} id="inicio">
+            <SaludoPersonalizado cuandoElNombreCambia={cuandoElNombreCambia} />
+            <NavBar modoNocturno={modoNocturno} cambiarModoNocturno={cambiarModoNocturno} />
 
-          <Routes>
-            <Route path="/" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
-            <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
-            <Route path="/item/:id" element={<ItemDetailPage modoNocturno={modoNocturno} />} />
-            <Route path="/cart" element={<Cart modoNocturno={modoNocturno} />} />
-            <Route path="/admin" element={<AdminEmojis modoNocturno={modoNocturno} />} />
-            <Route path="/sobre-nosotros" element={<SobreNosotros modoNocturno={modoNocturno} />} />
-            <Route path="/contacto" element={<Contacto modoNocturno={modoNocturno} />} />
-            <Route path="*" element={<PaginaNoEncontrada modoNocturno={modoNocturno} />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </CartProvider>
+            <Routes>
+              <Route path="/" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
+              <Route path="/categoria/:categoriaId" element={<ItemListContainer greeting={mensajeBienvenida} modoNocturno={modoNocturno} />} />
+              <Route path="/item/:id" element={<ItemDetailPage modoNocturno={modoNocturno} />} />
+              <Route path="/cart" element={<Cart modoNocturno={modoNocturno} />} />
+              <Route path="/admin" element={<AdminEmojis modoNocturno={modoNocturno} />} />
+              <Route path="/sobre-nosotros" element={<SobreNosotros modoNocturno={modoNocturno} />} />
+              <Route path="/contacto" element={<Contacto modoNocturno={modoNocturno} />} />
+              <Route path="*" element={<PaginaNoEncontrada modoNocturno={modoNocturno} />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </CartProvider>
+    </StockProvider>
   );
 }
 
