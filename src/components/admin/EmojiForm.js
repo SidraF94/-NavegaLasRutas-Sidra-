@@ -79,8 +79,6 @@ const EmojiForm = ({ modoNocturno }) => {
 
              const id = await addEmoji(nuevoEmoji);
              const slug = await generateUniqueSlug(nombre, id, { checkSlugExists });
-
-             // Actualizar con el slug
              await updateEmoji(id, { slug });
       
       showSuccess(`Emoji "${nombre}" creado exitosamente`);

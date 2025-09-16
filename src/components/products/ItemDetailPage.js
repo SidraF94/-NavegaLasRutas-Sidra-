@@ -27,8 +27,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
         
         if (foundItem) {
           setItem(foundItem);
-          // Usar el stock de Firestore directamente
-          const stock = foundItem.stock || 50; // Fallback a 50 si no hay stock definido
+          const stock = foundItem.stock || 50;
           setStockActual(stock);
         } else {
           setError('Emoji no encontrado en Firestore');
@@ -55,7 +54,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
     return () => {
       window.removeEventListener('stockActualizado', handleStockActualizado);
     };
-  }, [item?.id]); // ✅ Solo depende del ID, no del objeto completo
+  }, [item?.id]);
 
 
   const volverAProductos = () => {

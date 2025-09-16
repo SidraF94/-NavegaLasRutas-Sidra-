@@ -3,7 +3,6 @@ import { db } from './config';
 
 const COMPRAS_COLLECTION = 'compras';
 
-// Crear una nueva compra
 export const crearCompra = async (compraData) => {
   try {
     const comprasRef = collection(db, COMPRAS_COLLECTION);

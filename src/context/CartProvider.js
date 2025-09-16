@@ -18,13 +18,11 @@ const CartProvider = ({ children }) => {
 
   const addItem = async (item, quantity = 1) => {
     try {
-      // Verificar stock disponible en Firestore
       const emojiData = await getEmojiById(item.id);
       if (!emojiData || emojiData.stock < quantity) {
         return false;
       }
 
-      // Actualizar stock en Firestore
       const nuevoStock = emojiData.stock - quantity;
       await updateEmojiStock(item.id, nuevoStock);
 
@@ -71,7 +69,6 @@ const CartProvider = ({ children }) => {
     if (!itemAQuitar) return;
     
     try {
-      // Restaurar stock en Firestore
       const emojiData = await getEmojiById(itemId);
       if (emojiData) {
         const nuevoStock = emojiData.stock + itemAQuitar.cantidad;
@@ -91,8 +88,7 @@ const CartProvider = ({ children }) => {
     });
   };
 
-  const clear = async () => {
-    // Restaurar stock de todos los items en Firestore
+    const clear = async () => {
     for (const item of carrito) {
       try {
         const emojiData = await getEmojiById(item.id);

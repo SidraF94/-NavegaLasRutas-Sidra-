@@ -8,8 +8,7 @@ const useItem = (item) => {
   const { addItem } = useCartContext();
 
   useEffect(() => {
-    // Usar el stock de Firestore directamente
-    const stock = item.stock || 50; // Fallback a 50 si no hay stock definido
+    const stock = item.stock || 50; 
     setStockActual(stock);
   }, [item.id, item.stock]);
 
