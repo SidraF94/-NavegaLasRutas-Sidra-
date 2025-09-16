@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CartContext from './CartContext';
 import useSessionStorage from '../hooks/useSessionStorage';
 import { STORAGE_KEYS } from '../utils/constants';
-import { reducirStock, restaurarStockCompleto, isStockDisponible } from '../utils/stockManager';
+import { updateEmojiStock, getEmojiById } from '../firebase/emojisService';
 
 const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useSessionStorage(STORAGE_KEYS.CARRITO, []);
@@ -16,58 +16,74 @@ const CartProvider = ({ children }) => {
     setTotal(calcularTotal(carrito));
   }, [carrito]);
 
-  const addItem = (item, quantity = 1) => {
-    if (!isStockDisponible(item.id, quantity)) {
+  const addItem = async (item, quantity = 1) => {
+    try {
+      // Verificar stock disponible en Firestore
+      const emojiData = await getEmojiById(item.id);
+      if (!emojiData || emojiData.stock < quantity) {
+        return false;
+      }
+
+      // Actualizar stock en Firestore
+      const nuevoStock = emojiData.stock - quantity;
+      await updateEmojiStock(item.id, nuevoStock);
+
+      setCarrito(prevCarrito => {
+        const existe = prevCarrito.find(cartItem => cartItem.id === item.id);
+        
+        if (existe) {
+          const nuevoCarrito = prevCarrito.map(cartItem =>
+            cartItem.id === item.id
+              ? { ...cartItem, cantidad: cartItem.cantidad + quantity }
+              : cartItem
+          );
+          
+          window.dispatchEvent(new CustomEvent('stockActualizado', { 
+            detail: { itemId: item.id, nuevoStock } 
+          }));
+          
+          return nuevoCarrito;
+        } else {
+          const nuevoCarrito = [...prevCarrito, {
+            id: item.id,
+            titulo: item.titulo,
+            precio: item.precio,
+            imagenUrl: item.imagenUrl,
+            cantidad: quantity
+          }];
+          
+          window.dispatchEvent(new CustomEvent('stockActualizado', { 
+            detail: { itemId: item.id, nuevoStock } 
+          }));
+          
+          return nuevoCarrito;
+        }
+      });
+      return true;
+    } catch (error) {
+      console.error('Error al agregar item al carrito:', error);
       return false;
     }
-
-    setCarrito(prevCarrito => {
-      const existe = prevCarrito.find(cartItem => cartItem.id === item.id);
-      
-      if (existe) {
-        const nuevoCarrito = prevCarrito.map(cartItem =>
-          cartItem.id === item.id
-            ? { ...cartItem, cantidad: cartItem.cantidad + quantity }
-            : cartItem
-        );
-        
-        const nuevoStock = reducirStock(item.id, quantity);
-        
-        window.dispatchEvent(new CustomEvent('stockActualizado', { 
-          detail: { itemId: item.id, nuevoStock } 
-        }));
-        
-        return nuevoCarrito;
-      } else {
-        const nuevoCarrito = [...prevCarrito, {
-          id: item.id,
-          titulo: item.titulo,
-          precio: item.precio,
-          imagenUrl: item.imagenUrl,
-          cantidad: quantity
-        }];
-        
-        const nuevoStock = reducirStock(item.id, quantity);
-        
-        window.dispatchEvent(new CustomEvent('stockActualizado', { 
-          detail: { itemId: item.id, nuevoStock } 
-        }));
-        
-        return nuevoCarrito;
-      }
-    });
-    return true;
   };
 
-  const removeItem = (itemId) => {
+  const removeItem = async (itemId) => {
     const itemAQuitar = carrito.find(item => item.id === itemId);
     if (!itemAQuitar) return;
     
-    const nuevoStock = restaurarStockCompleto(itemId, itemAQuitar.cantidad);
-    
-    window.dispatchEvent(new CustomEvent('stockActualizado', { 
-      detail: { itemId, nuevoStock } 
-    }));
+    try {
+      // Restaurar stock en Firestore
+      const emojiData = await getEmojiById(itemId);
+      if (emojiData) {
+        const nuevoStock = emojiData.stock + itemAQuitar.cantidad;
+        await updateEmojiStock(itemId, nuevoStock);
+        
+        window.dispatchEvent(new CustomEvent('stockActualizado', { 
+          detail: { itemId, nuevoStock } 
+        }));
+      }
+    } catch (error) {
+      console.error('Error al restaurar stock:', error);
+    }
     
     setCarrito(prevCarrito => {
       const nuevoCarrito = prevCarrito.filter(item => item.id !== itemId);
@@ -75,14 +91,23 @@ const CartProvider = ({ children }) => {
     });
   };
 
-  const clear = () => {
-    carrito.forEach(item => {
-      const nuevoStock = restaurarStockCompleto(item.id, item.cantidad);
-      
-      window.dispatchEvent(new CustomEvent('stockActualizado', { 
-        detail: { itemId: item.id, nuevoStock } 
-      }));
-    });
+  const clear = async () => {
+    // Restaurar stock de todos los items en Firestore
+    for (const item of carrito) {
+      try {
+        const emojiData = await getEmojiById(item.id);
+        if (emojiData) {
+          const nuevoStock = emojiData.stock + item.cantidad;
+          await updateEmojiStock(item.id, nuevoStock);
+          
+          window.dispatchEvent(new CustomEvent('stockActualizado', { 
+            detail: { itemId: item.id, nuevoStock } 
+          }));
+        }
+      } catch (error) {
+        console.error('Error al restaurar stock:', error);
+      }
+    }
 
     setCarrito([]);
   };

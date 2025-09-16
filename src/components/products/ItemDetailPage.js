@@ -55,7 +55,7 @@ const ItemDetailPage = ({ modoNocturno }) => {
     return () => {
       window.removeEventListener('stockActualizado', handleStockActualizado);
     };
-  }, [id, item]);
+  }, [item?.id]); // ✅ Solo depende del ID, no del objeto completo
 
 
   const volverAProductos = () => {
@@ -66,9 +66,9 @@ const ItemDetailPage = ({ modoNocturno }) => {
     navigate('/cart');
   };
 
-  const agregarAlCarrito = (cantidad) => {
+  const agregarAlCarrito = async (cantidad) => {
     if (item) {
-      const exito = addItem(item, cantidad);
+      const exito = await addItem(item, cantidad);
       if (exito) {
         showAddToCart(item.titulo, cantidad);
       }

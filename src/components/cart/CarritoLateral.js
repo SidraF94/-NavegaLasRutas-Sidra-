@@ -21,11 +21,11 @@ const CarritoLateral = ({ isOpen, onClose, modoNocturno }) => {
   useEffect(() => {
   }, [isOpen]);
 
-  const handleQuitarItem = (id) => {
+  const handleQuitarItem = async (id) => {
     const itemAQuitar = carrito.find(item => item.id === id);
     if (!itemAQuitar) return;
     
-    removeItem(id);
+    await removeItem(id);
     showRemoveFromCart(itemAQuitar.titulo);
   };
 
@@ -33,7 +33,7 @@ const CarritoLateral = ({ isOpen, onClose, modoNocturno }) => {
     const result = await showClearCartConfirm();
 
     if (result.isConfirmed) {
-      clear();
+      await clear();
       showClearCart();
     }
   };
