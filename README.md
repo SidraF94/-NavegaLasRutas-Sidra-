@@ -1,175 +1,45 @@
-# 🛒 E-commerce de Emojis - React JS
+# 🛒 Tienda de Emojis - React JS
 
-## 📋 Descripción del Proyecto
+## ¿Qué es este proyecto?
 
-Este es un e-commerce desarrollado en React JS que permite a los usuarios comprar emojis de manera interactiva. El proyecto implementa todas las funcionalidades básicas de un carrito de compras, incluyendo navegación, filtros por categoría, gestión de stock y persistencia de datos.
+Un simulador de tienda online simple donde puedes comprar emojis. Está hecha con React y tiene todas las funciones básicas de una tienda: ver productos, agregar al carrito, filtrar por categorías y más.
 
-## 🚀 Tecnologías Utilizadas
+## 🛠️ Tecnologías que usa
 
-- **React 18** - Framework principal
-- **React Router** - Navegación SPA
-- **Firebase Firestore** - Base de datos en la nube
-- **Context API** - Gestión de estado global
-- **Custom Hooks** - Lógica reutilizable
-- **SweetAlert2** - Alertas y confirmaciones
-- **CSS Modules** - Estilos modulares
+- **React** - Para crear la interfaz
+- **Firebase** - Para guardar los datos
+- **CSS** - Para los estilos
 
-## 🏗️ Arquitectura del Proyecto
+## 🎯 ¿Qué puedes hacer?
 
-```
-src/
-├── components/           # Componentes organizados por funcionalidad
-│   ├── cart/            # Componentes del carrito de compras
-│   ├── common/          # Componentes comunes (Loading, Error, etc.)
-│   ├── layout/          # Componentes de layout (NavBar, etc.)
-│   ├── pages/           # Páginas principales
-│   ├── products/        # Componentes de productos
-│   └── ui/              # Componentes de UI reutilizables
-├── context/             # Context providers
-├── firebase/            # Servicios de Firebase
-├── hooks/               # Custom hooks
-└── utils/               # Utilidades y helpers
-```
+### Ver productos
+- Lista de emojis disponibles
+- Filtrar por categorías (caras, objetos, etc.)
+- Ver detalles de cada emoji
 
-## ✨ Funcionalidades Implementadas
+### Comprar
+- Agregar emojis al carrito
+- Ver cuántos tienes en el carrito
+- Calcular el total a pagar
 
-### 🛍️ Catálogo de Productos
-- **Listado dinámico** de productos desde Firestore
-- **Filtros por categoría** con navegación automática
-- **Paginación infinita** para mejor rendimiento
-- **URLs amigables** con slugs para productos
-- **Búsqueda y filtrado** en tiempo real
+### Navegar
+- Modo día/noche
+- Funciona en celular y computadora
+- Páginas de contacto y sobre nosotros
 
-### 🛒 Carrito de Compras
-- **Context API** para estado global del carrito
-- **Persistencia** con sessionStorage
-- **Gestión de stock** en tiempo real
-- **Validaciones** de cantidad y disponibilidad
-- **Cálculo automático** de totales y subtotales
 
-### 🎨 Interfaz de Usuario
-- **Modo nocturno** con persistencia en localStorage
-- **Responsive design** para todos los dispositivos
-- **Loading states** y mensajes de error
-- **Alertas interactivas** con SweetAlert2
-- **Navegación SPA** sin recargas de página
+## 📱 Páginas disponibles
 
-### 🔧 Gestión de Datos
-- **Firestore** como base de datos principal
-- **Migración** de datos mock a Firestore
-- **Servicios modulares** para operaciones CRUD
-- **Manejo de errores** robusto
-- **Optimización** de consultas
+- **Inicio** - Lista de emojis
+- **Categorías** - Filtrar por tipo de emoji
+- **Detalle** - Ver información de cada emoji
+- **Carrito** - Ver lo que vas a comprar
+- **Contacto** - Información de contacto
+- **Sobre nosotros** - Historia de la tienda
 
-## 🚀 Instalación y Configuración
 
-### Prerrequisitos
-- Node.js (versión 16 o superior)
-- npm o yarn
-- Cuenta de Firebase
+## 👨‍💻 Hecho por
 
-### Pasos de instalación
-
-1. **Clonar el repositorio**
-```bash
-git clone [url-del-repositorio]
-cd mi-proyecto-react
-```
-
-2. **Instalar dependencias**
-```bash
-npm install
-```
-
-3. **Configurar Firebase**
-   - Crear proyecto en Firebase Console
-   - Habilitar Firestore Database
-   - Copiar configuración a `src/firebase/config.js`
-
-4. **Ejecutar el proyecto**
-```bash
-npm start
-```
-
-## 📱 Páginas y Rutas
-
-- **`/`** - Catálogo principal de productos
-- **`/categoria/:categoriaId`** - Filtros por categoría
-- **`/item/:slug`** - Detalle de producto individual
-- **`/cart`** - Carrito de compras
-- **`/sobre-nosotros`** - Información de la empresa
-- **`/contacto`** - Formulario de contacto
-- **`/*`** - Página 404 para rutas no encontradas
-
-## 🎯 Características Técnicas
-
-### Componentes
-- **Separación de responsabilidades** entre contenedores y presentación
-- **Reutilización** de componentes UI
-- **Props drilling** minimizado con Context API
-- **Hooks personalizados** para lógica compleja
-
-### Estado
-- **Context API** para estado global del carrito
-- **useState** para estado local de componentes
-- **useEffect** para efectos secundarios
-- **Custom hooks** para lógica reutilizable
-
-### Datos
-- **Firestore** como fuente única de verdad
-- **Consultas optimizadas** con paginación
-- **Caché local** para mejor rendimiento
-- **Manejo de errores** robusto
-
-## 🔧 Scripts Disponibles
-
-- **`npm start`** - Ejecutar en modo desarrollo
-- **`npm test`** - Ejecutar tests
-- **`npm run build`** - Construir para producción
-- **`npm run eject`** - Ejectar configuración (no recomendado)
-
-## 📚 Convenciones del Código
-
-### Naming Conventions
-- **Componentes**: PascalCase (`ItemListContainer`)
-- **Variables y funciones**: camelCase (`cuandoElNombreCambia`)
-- **Constantes**: UPPER_SNAKE_CASE (`STORAGE_KEYS`)
-- **Archivos**: PascalCase para componentes, camelCase para utilidades
-
-### Estructura de Componentes
-- **Un componente por archivo**
-- **CSS Modules** para estilos
-- **Props destructuring** en parámetros
-- **Hooks al inicio** del componente
-
-## 🚧 Funcionalidades Pendientes
-
-- [ ] **Sistema de checkout** con formulario de datos
-- [ ] **Generación de órdenes** en Firestore
-- [ ] **Historial de compras** del usuario
-- [ ] **Sistema de autenticación** de usuarios
-- [ ] **Panel de administración** para gestión de productos
-
-## 🤝 Contribución
-
-1. Fork del proyecto
-2. Crear rama para nueva funcionalidad (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit de cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crear Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 👨‍💻 Autor
-
-**Matias** - [GitHub](https://github.com/tu-usuario)
-
-## 🙏 Agradecimientos
-
-- Coderhouse por el curso de React JS
-- Firebase por la plataforma de backend
-- Comunidad de React por las mejores prácticas
+**Fernando Sidra** - Proyecto del curso de React en Coderhouse
 
 
